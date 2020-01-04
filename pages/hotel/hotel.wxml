@@ -1,0 +1,34 @@
+<!--pages/hotel/hotel.wxml-->
+<view class="hotel-name">赫尔墨斯窑洞酒店</view>
+<view class="hotel-ps">Hermes Cave Hotel</view>
+<view class="m-contact">
+	<view class="m-address">
+		<image src="../img/tubiao.png"></image>
+		<text>地址地址地址地址地址地地址地址地址地址地址地</text>
+	</view>
+	<view class="m-tel">
+		<image src="../img/tel.png"></image>
+		<text>138 662 26682</text>
+	</view>
+</view>
+<view class="m-info">
+	<view class="piaohao">
+		<text>周日</text>
+		<text class="m-timeme">12月08日</text>
+		<view class="lastname">
+			<text class="last-time">16:00</text>
+			<text class="last-state">后入住</text>
+		</view>
+	</view>
+	<view class="m-num">
+		5晚
+	</view>
+	<view class="flyTime">
+		<text>周日</text>
+		<text class="m-timeme">12月14日 </text>
+		<view class="lastname">
+			<text class="last-time">12:00</text>
+			<text class="last-state">前退房</text>
+		</view>
+	</view>
+</view>

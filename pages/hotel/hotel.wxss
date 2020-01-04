@@ -1,0 +1,141 @@
+/* pages/hotel/hotel.wxss */
+
+.hotel-name {
+  width: 624rpx;
+  line-height: 64rpx;
+  font-size: 24px;
+  font-family: Source Han Sans CN;
+  font-weight: bold;
+  color: rgba(51, 51, 51, 1);
+  opacity: 1;
+  margin-left: 66rpx;
+}
+
+.hotel-ps {
+  width: 330rpx;
+  line-height: 32rpx;
+  font-size: 32rpx;
+  font-family: Source Han Sans CN;
+  font-weight: 400;
+  color: rgba(51, 51, 51, 1);
+  opacity: 1;
+  margin-left: 66rpx;
+  margin-top: 16rpx;
+}
+
+.m-contact {
+  width: 456rpx;
+  margin-left: 66rpx;
+  margin-top: 104rpx;
+}
+
+.m-address image {
+  width: 26rpx;
+  height: 30rpx;
+}
+
+.m-tel {
+  margin-top: 52rpx;
+}
+
+.m-address {
+  display: flex;
+  justify-content: space-between;
+}
+
+.m-tel image {
+  width: 30rpx;
+  height: 30rpx;
+}
+
+.m-address text {
+  width: 392rpx;
+  font-size: 28rpx;
+  font-family: Source Han Sans CN;
+  font-weight: 500;
+  line-height: 48rpx;
+  color: rgba(90, 125, 201, 1);
+  opacity: 1;
+  margin-left: 38rpx;
+  position: relative;
+  bottom: 6rpx;
+
+}
+
+.m-tel text {
+  width: 392rpx;
+  font-size: 28rpx;
+  font-family: Source Han Sans CN;
+  font-weight: 500;
+  line-height: 36rpx;
+  color: rgba(90, 125, 201, 1);
+  opacity: 1;
+  margin-left: 34rpx;
+  position: relative;
+  bottom: 4rpx;
+}
+
+.m-info {
+  width: 686rpx;
+  height: 256rpx;
+  padding: 54rpx 34rpx;
+  box-sizing: border-box;
+  background: rgba(236, 240, 247, 1);
+  opacity: 1;
+  border-radius: 16rpx;
+  margin: 0 auto;
+  margin-top: 104rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+
+.piaohao {
+  display: flex;
+  flex-flow: column;
+}
+
+.flyTime {
+  display: flex;
+  flex-flow: column;
+}
+
+.m-timeme {
+  width: 216rpx;
+  font-size: 48rpx;
+  font-family: Source Han Sans CN;
+  font-weight: 500;
+  line-height: 48rpx;
+  color: rgba(51, 51, 51, 1);
+  opacity: 1;
+  margin-top: 20rpx;
+}
+
+
+.lastname {
+  display: flex;
+}
+
+.last-time,
+.last-state {
+  width: 92rpx;
+  font-size: 28rpx;
+  font-family: Source Han Sans CN;
+  font-weight: 400;
+  line-height: 48rpx;
+  color: rgba(153, 153, 153, 1);
+  opacity: 1;
+  display: inline-block;
+  margin-top: 20rpx;
+}
+
+.m-num {
+  width: 88rpx;
+  font-size: 28rpx;
+  text-align: center;
+  line-height: 36rpx;
+  background: rgba(255, 255, 255, 1);
+  opacity: 1;
+  border-radius: 18rpx;
+}
