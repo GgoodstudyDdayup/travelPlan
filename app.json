@@ -1,6 +1,8 @@
 {
   "pages": [
     "pages/index/index",
+    "pages/hotel/hotel",
+    "pages/qianzheng/qianzheng",
     "pages/planinfo/planinfo"
   ],
   "window": {

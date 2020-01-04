@@ -1,2 +1,42 @@
 <!--pages/planinfo/planinfo.wxml-->
-<text>pages/planinfo/planinfo.wxml</text>
+<view class="m-title">
+	<text class="planTitle">BI622</text>
+	<text class="planName">汶莱皇家航空</text>
+</view>
+<view class="m-date">
+	<text class="m-date1">12月08日</text>
+	<text class="m-date2">周日</text>
+</view>
+<view class="m-info">
+	<image style="width:28rpx;height:34rpx;margin-left:4rpx" src="../img/tubiao.png"></image>
+	<view class="d4"></view>
+	<view class="d4 d5"></view>
+	<view class="xuxian"></view>
+	<view class="yuan"></view>
+	<view class="m-fly">
+		<text class="m-time">16:50</text>
+		<text class="m-didian">北京</text>
+		<text class="m-jichang">大兴机场T1大兴机场T1
+    <text class="m-riqi">2019-12-08</text>
+		<text class="m-riqibianhao">GMT+8</text>
+    </text>
+	</view>
+  <view class="m-fly m-flyend">
+		<text class="m-time">16:50</text>
+		<text class="m-didian">北京</text>
+		<text class="m-jichang">大兴机场T1
+    <text class="m-riqi">2019-12-08</text>
+		<text class="m-riqibianhao">GMT+8</text>
+    </text>
+	</view>
+</view>
+<view class="info-card">
+  <view class="piaohao">
+    <text>票号</text>
+    <text>S8WWIN</text>
+  </view>
+  <view class="flyTime">
+    <text>飞行时长</text>
+    <text>5h45min</text>
+  </view>
+</view>
