@@ -1,4 +1,5 @@
 /**index.wxss**/
+
 .userinfo {
   display: flex;
   flex-direction: column;
@@ -18,4 +19,339 @@
 
 .usermotto {
   margin-top: 200px;
+}
+
+.m-head {
+  display: flex;
+}
+
+.homeHead {
+  width: 64rpx;
+  height: 64rpx;
+  border-radius: 50%;
+  overflow: hidden;
+  background-position: top;
+  background-size: cover;
+  background-repeat: no-repeat;
+  margin-top: 50rpx;
+  margin-left: 34rpx;
+}
+
+.homeName {
+  margin-top: 64rpx;
+  margin-left: 18rpx;
+  font-size: 28rpx;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis
+}
+
+.qizhen {
+  width: 200rpx;
+  height: 38rpx;
+  margin-top: 64rpx;
+  margin-left: 294rpx;
+}
+
+.qizhen image {
+  width: 48rpx;
+  height: 38rpx;
+}
+
+.qizhen text {
+  font-size: 24rpx;
+  font-family: Source Han Sans CN;
+  font-weight: 400;
+  line-height: 28rpx;
+  color: rgba(51, 51, 51, 1);
+  opacity: 1;
+  margin-left: 16rpx;
+  position: relative;
+  bottom: 10rpx;
+}
+
+.m-main {
+  margin-top: 80rpx;
+  box-sizing: border-box;
+  padding-left: 42rpx;
+  padding-right: 35rpx;
+}
+
+.m-main-content {
+  display: flex;
+  justify-content: space-between;
+}
+
+.plandata {
+  width: 96rpx;
+  display: flex;
+  flex-flow: column;
+  align-items: flex-end;
+}
+
+.plandata text:nth-child(1) {
+  font-size: 48rpx;
+  font-family: Source Han Sans CN;
+  font-weight: 500;
+  line-height: 82rpx;
+  color: rgba(51, 51, 51, 1);
+
+}
+
+.plandata text:nth-child(2) {
+  font-size: 28rpx;
+  font-family: Source Han Sans CN;
+  font-weight: 400;
+  line-height: 32rpx;
+  color: rgba(51, 51, 51, 1);
+}
+
+.plandata text:nth-child(3) {
+  font-size: 28rpx;
+  font-family: Source Han Sans CN;
+  font-weight: 400;
+  line-height: 40rpx;
+  color: rgba(51, 51, 51, 1);
+}
+
+.rightPlan {
+  width: 552rpx;
+  margin-top: 22rpx;
+  display: flex;
+  justify-content: space-between;
+
+}
+
+.rightPlan image {
+  width: 64rpx;
+  height: 64rpx;
+}
+
+.xuxian {
+  width: 0px;
+  height: 100%;
+  border: 1px dashed rgba(219, 224, 229, 1);
+  margin-left: 28rpx;
+  opacity: 1;
+}
+
+.m-margin-bottom {
+  margin-bottom: 80rpx;
+}
+
+.plan-item {
+  width: 452rpx;
+  height: 248rpx;
+  background: rgba(231, 237, 246, 1);
+  opacity: 1;
+  box-sizing: border-box;
+  padding: 48rpx 38rpx;
+  border-radius: 24rpx;
+}
+
+.m-paln-top {
+  display: flex;
+  justify-content: space-between;
+  height: 36rpx;
+}
+
+.m-paln-topTitle {
+  display: flex;
+  align-items: center;
+}
+
+.m-paln-topTitle text:nth-child(1) {
+  width: 96rpx;
+  font-size: 36rpx;
+  font-family: Source Han Sans CN;
+  font-weight: 500;
+  line-height: 62rpx;
+  color: rgba(41, 41, 52, 1);
+  opacity: 1;
+}
+
+.m-paln-topTitle text:nth-child(2) {
+  width: 48rpx;
+  font-size: 24rpx;
+  font-family: Source Han Sans CN;
+  font-weight: 400;
+  line-height: 40rpx;
+  color: rgba(41, 41, 52, 1);
+  opacity: 1;
+  margin-left: 18rpx;
+}
+
+.m-plan-midden {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 18rpx;
+  width: 320rpx;
+  position: relative;
+  left: 48rpx;
+}
+
+.m-plan-midden view {
+  display: flex;
+  flex-flow: column;
+}
+
+.m-plan-midden view text:nth-child(1) {
+  font-size: 36rpx;
+  font-family: Source Han Sans CN;
+  font-weight: 500;
+  line-height: 62rpx;
+  color: rgba(41, 41, 52, 1);
+  opacity: 1;
+}
+
+.m-plan-midden view text:nth-child(2) {
+  font-size: 28rpx;
+  font-family: Source Han Sans CN;
+  font-weight: 400;
+  line-height: 48rpx;
+  color: rgba(41, 41, 52, 1);
+  opacity: 1;
+}
+
+.wait-item {
+  width: 452rpx;
+  line-height: 124rpx;
+  box-sizing: border-box;
+  padding-left: 38rpx;
+  background: rgba(231, 237, 246, 1);
+  opacity: 1;
+  border-radius: 24rpx;
+  font-style: 28rpx;
+  font-family: Source Han Sans CN;
+  font-weight: 400;
+}
+
+.hotel-item {
+  width: 452rpx;
+  height: 250rpx;
+  background: rgba(231, 237, 246, 1);
+  opacity: 1;
+  border-radius: 24rpx;
+  padding: 48rpx 38rpx;
+  box-sizing: border-box;
+}
+
+.bus-item {
+  width: 452rpx;
+  height: 282rpx;
+  background: rgba(225, 233, 244, 0.8);
+  opacity: 1;
+  border-radius: 24rpx;
+  padding: 48rpx 38rpx;
+  box-sizing: border-box;
+  position: relative;
+}
+
+.contact-driver {
+  width: 170rpx;
+  height: 52rpx;
+  background: rgba(255, 255, 255, 1);
+  opacity: 1;
+  border-radius: 26px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-sizing: border-box;
+  padding: 14rpx 20rpx;
+  position: absolute;
+  bottom: 32rpx;
+  right: 38rpx;
+}
+
+.contact-driver image {
+  width: 22rpx;
+  height: 22rpx;
+}
+
+.contact-driver text {
+  font-size: 24rpx;
+  font-family: Source Han Sans CN;
+  font-weight: 400;
+  line-height:40rpx;
+  color: rgba(102, 102, 102, 1);
+  opacity: 1;
+}
+
+.huiyi-item {
+  width: 452rpx;
+  height: 254rpx;
+  background: rgba(225, 233, 244, 0.8);
+  opacity: 1;
+  border-radius: 24rpx;
+  padding: 48rpx 38rpx;
+  box-sizing: border-box;
+
+}
+
+.m-huiyi-topTitle {
+  display: flex;
+  flex-flow: column;
+}
+
+.m-hotel-topTitle {
+  display: flex;
+  flex-flow: column;
+
+}
+
+.m-hotel-topTitle text:nth-child(1) {
+  font-size: 36rpx;
+  font-family: Source Han Sans CN;
+  font-weight: 500;
+  line-height: 42rpx;
+  color: rgba(51, 51, 51, 1);
+  opacity: 1;
+}
+
+.m-hotel-topTitle text:nth-child(2) {
+  font-size: 28rpx;
+  font-family: Source Han Sans CN;
+  font-weight: 400;
+  line-height: 48rpx;
+  color: rgba(51, 51, 51, 1);
+  opacity: 1;
+}
+
+.m-hotel-topTitle text:nth-child(3) {
+  font-size: 28rpx;
+  font-family: Source Han Sans CN;
+  font-weight: 400;
+  line-height: 48rpx;
+  color: rgba(51, 51, 51, 1);
+  opacity: 1;
+  margin-top: 20rpx;
+}
+
+.m-huiyi-topTitle text:nth-child(1) {
+  width: 240rpx;
+  font-size: 40rpx;
+  font-family: Source Han Sans CN;
+  font-weight: 500;
+  color: rgba(51, 51, 51, 1);
+  opacity: 1;
+}
+
+.m-huiyi-topTitle text:nth-child(2) {
+  width: 168rpx;
+  font-size: 28rpx;
+  font-family: Source Han Sans CN;
+  font-weight: 400;
+  line-height: 48rpx;
+  color: rgba(51, 51, 51, 1);
+  opacity: 1;
+}
+
+.m-huiyi-topTitle text:nth-child(3) {
+  font-size: 28rpx;
+  font-family: Source Han Sans CN;
+  font-weight: 400;
+  line-height: 48rpx;
+  color: rgba(51, 51, 51, 1);
+  opacity: 1;
+  margin-top: 20rpx;
 }
