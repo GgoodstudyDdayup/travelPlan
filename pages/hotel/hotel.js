@@ -1,4 +1,6 @@
 // pages/hotel/hotel.js
+const app = getApp()
+import Http from '../../utils/util'
 Page({
 
   /**
@@ -12,7 +14,15 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    console.log(options)
+    const that = this
+    Http.post(`plan/get_detail`,{id:options.id,openid:wx.getStorageSync('openid')})
+    .then(res=>{
+      console.log(res)
+      that.setData({
+        info:res.data.data
+      })
+    })
   },
 
   /**

@@ -1,14 +1,14 @@
 <!--pages/hotel/hotel.wxml-->
-<view class="hotel-name">赫尔墨斯窑洞酒店</view>
+<view class="hotel-name">{{info.name}}</view>
 <view class="hotel-ps">Hermes Cave Hotel</view>
 <view class="m-contact">
 	<view class="m-address">
 		<image src="../img/tubiao.png"></image>
-		<text>地址地址地址地址地址地地址地址地址地址地址地</text>
+		<text>{{info.address}}</text>
 	</view>
 	<view class="m-tel">
 		<image src="../img/tel.png"></image>
-		<text>138 662 26682</text>
+		<text>{{info.tel}}</text>
 	</view>
 </view>
 <view class="m-info">

@@ -1,77 +1,59 @@
 //index.js
 //获取应用实例
 const app = getApp()
-
+import Http from '../../utils/util'
 Page({
   data: {
-    motto: 'Hello World',
-    userInfo: {},
-    hasUserInfo: false,
-    canIUse: wx.canIUse('button.open-type.getUserInfo'),
-    state:2,
-    imgList: [{
-      src: '../img/wait.png',
-      state:2
-    },
-    {
-      src: '../img/plan.png',
-      state:1
-    },
-    {
-      src: '../img/hotel.png',
-      state:3
-    },
-    {
-      src: '../img/bus.png',
-      state:4
-    },
-    {
-      src: '../img/huiyi.png',
-      state:5
-    }, 
-    ]
-  },
-  //事件处理函数
-  bindViewTap: function () {
-    wx.navigateTo({
-      url: '../logs/logs'
-    })
   },
   onLoad: function () {
-    if (app.globalData.userInfo) {
-      this.setData({
-        userInfo: app.globalData.userInfo,
-        hasUserInfo: true
-      })
-    } else if (this.data.canIUse) {
-      // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
-      // 所以此处加入 callback 以防止这种情况
-      app.userInfoReadyCallback = res => {
-        this.setData({
-          userInfo: res.userInfo,
-          hasUserInfo: true
-        })
-      }
-    } else {
-      // 在没有 open-type=getUserInfo 版本的兼容处理
-      wx.getUserInfo({
-        success: res => {
-          app.globalData.userInfo = res.userInfo
-          this.setData({
-            userInfo: res.userInfo,
-            hasUserInfo: true
-          })
-        }
-      })
+    const that = this
+    const date = that.getNowFormatDate()
+    const parmas = {
+      openid: wx.getStorageSync('openid')
     }
-  },
-  getUserInfo: function (e) {
-    console.log(e)
-    app.globalData.userInfo = e.detail.userInfo
-    this.setData({
-      userInfo: e.detail.userInfo,
-      hasUserInfo: true
+    Http.post(`plan/getlist`, parmas).then(res => {
+      const outList = Object.keys(res.data.data).reduce((acc, key) => {
+        acc.push({ time: key, data: res.data.data[key], date: res.data.data[key].date })
+        return acc
+      }, []);
+      outList.forEach(res => {
+        delete res.data.date
+      })
+      that.setData({
+        outList,
+        date
+      })
     })
+  },
+  getNowFormatDate() {
+    let date = new Date();
+    let seperator1 = "-";
+    let year = date.getFullYear();
+    let month = date.getMonth() + 1;
+    let strDate = date.getDate();
+    if (month >= 1 && month <= 9) {
+      month = "0" + month;
+    }
+    if (strDate >= 0 && strDate <= 9) {
+      strDate = "0" + strDate;
+    }
+    let currentdate = year + seperator1 + month + seperator1 + strDate;
+    return currentdate;
+  },
+  Info(e) {
+    console.log(e.currentTarget.dataset.name)
+    switch (e.currentTarget.dataset.name) {
+      case `plan`:
+        wx.navigateTo({
+          url: `../planinfo/planinfo?id=${e.currentTarget.dataset.id}`
+        })
+        break;
+      case `hotel`:
+        wx.navigateTo({
+          url: `../hotel/hotel?id=${e.currentTarget.dataset.id}`
+        })
+        break
+    }
   },
   loadImg() {
     wx.navigateTo({

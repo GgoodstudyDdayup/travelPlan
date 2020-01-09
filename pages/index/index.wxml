@@ -1,16 +1,4 @@
 <!--index.wxml-->
-<!-- <view class="container">
-	<view class="userinfo">
-		<button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
-		<block wx:else>
-			<image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
-			<text class="userinfo-nickname">{{userInfo.nickName}}</text>
-		</block>
-	</view>
-	<view class="usermotto">
-		<text class="user-motto">{{motto}}</text>
-	</view>
-</view> -->
 <view class="m-head">
 	<view class="homeHead">
 		<open-data type="userAvatarUrl"></open-data>
@@ -24,81 +12,92 @@
 	</view>
 </view>
 <view class="m-main">
-	<view class="m-main-content">
-		<view class="plandata">
-			<text>今天</text>
-			<text>12-12</text>
-			<text>周五</text>
-		</view>
-		<view>
-			<view class="rightPlan m-margin-bottom" wx:for="{{imgList}}">
-				<view>
-					<image src="{{item.src}}"></image>
-					<view class="xuxian"></view>
-				</view>
-				<view>
-					<view wx:if="{{item.state == 1}}" class="plan-item ">
-						<view class="m-paln-top">
-							<view class="m-paln-topTitle">
-								<text>BI622</text>
-								<text>航班</text>
-							</view>
-							<image style="width:32rpx;height:32rpx" src="../img/jiantou.png"></image>
-						</view>
-						<view class="m-plan-midden">
-							<view>
-								<text>北京</text>
-								<text>14:01</text>
-							</view>
-							<image style="width:44rpx;height:44rpx;margin-top:12rpx" src="../img/itemplan.png"></image>
-							<view>
-								<text>土耳其</text>
-								<text>17:45</text>
-							</view>
-						</view>
+	<block wx:for="{{outList}}" wx:key="{{index}}">
+		<view class="m-main-content">
+			<view class="plandata">
+				<text>{{item.time == date?'今天':''}}</text>
+				<text>{{item.time}}</text>
+				<text>{{outList[index].date}}</text>
+			</view>
+			<view>
+				<view class="rightPlan m-margin-bottom" wx:for="{{outList[index].data}}">
+					<view>
+						<image wx:if="{{item.plan_id == 1}}" src="../img/plan.png"></image>
+						<image wx:elif="{{item.plan_id == 2}}" src="../img/bus.png"></image>
+						<image wx:elif="{{item.plan_id == 3}}" src="../img/hotel.png"></image>
+						<image wx:elif="{{item.plan_id == 4}}" src="../img/huiyi.png"></image>
+						<image wx:elif="{{item.plan_id == 5}}" src="../img/wait.png"></image>
+						<view class="xuxian"></view>
 					</view>
-					<view wx:elif="{{item.state == 2}}" class="wait-item ">转机预计等待35分钟</view>
-
-
-					<view wx:elif="{{item.state == 3}}" class="hotel-item ">
-						<view class="m-paln-top">
-							<view class="m-hotel-topTitle">
-								<text>某某某某某酒店</text>
-								<text>酒店地址地址地址地址</text>
-								<text>入住：上午12:00</text>
+					<view>
+						<view wx:if="{{item.plan_id == 1}}" class="plan-item" data-id="{{item.id}}" data-name="plan" bindtap="Info">
+							<view class="m-paln-top">
+								<view class="m-paln-topTitle">
+									<text>{{item.hCompany}}</text>
+									<text>航班</text>
+								</view>
+								<image style="width:32rpx;height:32rpx" src="../img/jiantou.png"></image>
 							</view>
-							<image style="width:32rpx;height:32rpx" src="../img/jiantou.png"></image>
-						</view>
-					</view>
-
-
-					<view wx:elif="{{item.state == 4}}" class="bus-item ">
-						<view class="m-paln-top">
-							<view class="m-huiyi-topTitle">
-								<text>车牌HN6666</text>
-								<text></text>
-								<text>上车：上午12:00</text>
+							<view class="m-plan-midden">
+								<view>
+									<text>{{item.start_station}}</text>
+									<text>{{item.start_time}}</text>
+								</view>
+								<image style="width:44rpx;height:44rpx;margin-top:12rpx" src="../img/itemplan.png"></image>
+								<view>
+									<text>{{item.end_station}}</text>
+									<text>{{item.end_time}}</text>
+								</view>
 							</view>
 						</view>
-						<view class="contact-driver">
-							<image src="../img/greenTel.png"></image>
-							<text>联系司机</text>
+						<view wx:elif="{{item.plan_id == 5}}" class="wait-item ">{{item.name}}</view>
+						<view wx:elif="{{item.plan_id == 3}}" class="hotel-item " data-id="{{item.id}}" data-name="hotel" bindtap="Info">
+							<view class="m-paln-top">
+								<view class="m-hotel-topTitle">
+									<text>{{item.name}}</text>
+									<text>{{item.address}}</text>
+									<text>入住：{{item.start_time}}</text>
+								</view>
+								<image style="width:32rpx;height:32rpx" src="../img/jiantou.png"></image>
+							</view>
 						</view>
-
-					</view>
-
-
-					<view wx:elif="{{item.state == 5}}" class="huiyi-item ">
-						<view class="m-paln-top">
-							<view class="m-huiyi-topTitle">
-								<text>某某某某会议</text>
-								<text>会议地点地点</text>
-								<text>会议结束：上午12:00</text>
+						<view wx:elif="{{item.plan_id == 2}}" class="bus-item ">
+							<view class="m-paln-top">
+								<view class="m-huiyi-topTitle">
+									<text>{{item.name}}</text>
+									<text></text>
+									<text>上车:{{item.start_time}}</text>
+								</view>
+							</view>
+							<view class="contact-driver">
+								<image src="../img/greenTel.png"></image>
+								<text>联系司机</text>
+							</view>
+						</view>
+						<view wx:elif="{{item.plan_id == 4}}" class="huiyi-item">
+							<view class="m-paln-top">
+								<view class="m-huiyi-topTitle">
+									<text>{{item.name}}</text>
+									<text>{{item.address}}</text>
+									<text>{{item.end_time?'会议结束'+item.end_time:'会议开始'+item.start_time}}</text>
+								</view>
 							</view>
 						</view>
 					</view>
 				</view>
 			</view>
 		</view>
+	</block>
+</view>
+
+
+<view class="m-fiex">
+	<view class="m-fiex-tel">
+		<image src="../img/greenTel.png"></image>
+		<text>领队</text>
+	</view>
+	<view class="m-fiex-tel">
+		<image src="../img/greenTel.png"></image>
+		<text>导游</text>
 	</view>
 </view>

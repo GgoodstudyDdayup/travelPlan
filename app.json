@@ -2,9 +2,9 @@
   "pages": [
     "pages/welcome/welcome",
     "pages/index/index",
-    "pages/hotel/hotel",
+    "pages/planinfo/planinfo",
     "pages/qianzheng/qianzheng",
-    "pages/planinfo/planinfo"
+    "pages/hotel/hotel"
   ],
   "window": {
     "backgroundTextStyle": "light",

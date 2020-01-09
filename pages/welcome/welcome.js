@@ -1,75 +1,68 @@
 // pages/welcome/welcome.js
+const app = getApp()
+import Http from "../../utils/util"
 Page({
-
-  /**
-   * 页面的初始数据
-   */
   data: {
-
   },
-
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
-    wx.login({
-      success (res) {
-        console.log(res)
-      }
-    })
-  },
-  onGotUserInfo(e){
-    wx.getSetting({
-      success: function(res) {
-        if (res.authSetting['scope.userInfo']) {
-          wx.getUserInfo({
-            success: function(res) {
-             console.log(res)
+  onLoad() {
+    const that = this
+    if (wx.getStorageSync('openid')) {
+      wx.reLaunch({
+        url: '../index/index',
+      })
+    } else {
+      wx.login({
+        success(res) {
+          Http.post('user/login', { code: `${res.code}` }).then(res => {
+            switch (res.data.code) {
+              case 0:
+                wx.showToast({
+                  title: '获取失败',
+                })
+                break;
+              case 1:
+                wx.setStorageSync('openid', res.data.data.openid)
+                that.setData({
+                  openid: res.data.data.openid
+                })
+                break
+              case 2:
+                wx.reLaunch({
+                  url: '../index/index',
+                })
             }
-          });
+          })
         }
+      })
+    }
+  },
+  formSubmit(e) {
+    console.log(wx.getStorageSync('openid'))
+    const that = this
+    const filter = {
+      passport: e.detail.value.code,
+      username: `${e.detail.value.user}${e.detail.value.name}`,
+      openid: `${that.data.openid}`
+    }
+    this.onGotUserInfo(filter)
+  },
+  onGotUserInfo(int) {
+    const that = this
+    Http.post(`user/dologin`, int).then(e => {
+      if (e.data.code == 1) {
+        wx.showToast({
+          title: '登录成功',
+        })
+        setTimeout(() => {
+          wx.reLaunch({
+            url: '../index/index',
+          })
+        }, 1000);
+      } else {
+        wx.showToast({
+          title: `${e.data.msg}`,
+        })
       }
     })
-  },
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
   }
 })

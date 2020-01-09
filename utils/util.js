@@ -1,17 +1,37 @@
-const formatTime = date => {
-  const year = date.getFullYear()
-  const month = date.getMonth() + 1
-  const day = date.getDate()
-  const hour = date.getHours()
-  const minute = date.getMinutes()
-  const second = date.getSeconds()
-  return [year, month, day].map(formatNumber).join('/') + ' ' + [hour, minute, second].map(formatNumber).join(':')
+const globalUrl = 'http://nt.liaozhifeng.cn/api/'
+const post = (url, parms) => {
+  let http = new Promise((resolve, reject) => {
+    wx.request({
+      url: `${globalUrl}${url}`,
+      data: parms,
+      method: 'POST',
+      success: (e) => {
+        resolve(e)
+      },
+      fail: (err) => {
+        reject(err)
+      }
+    })
+  })
+  return http
 }
-const formatNumber = n => {
-  n = n.toString()
-  return n[1] ? n : '0' + n
+const get = (url, parms) => {
+  let http = new Promise((resolve, reject) => {
+    wx.request({
+      url: `${globalUrl}${url}`,
+      data: parms,
+      success: (e) => {
+        resolve(e)
+      },
+      fail: (err) => {
+        reject(err)
+      }
+    })
+  })
+  return http
 }
-
-module.exports = {
-  formatTime: formatTime
+const Http = {
+  post,
+  get
 }
+module.exports = Http 

@@ -3,11 +3,16 @@
 	<image src="../img/head.png"></image>
 </view>
 <view class="title">2020和浠高端境外游学土耳其之旅</view>
-<view class="m-infoInput">
-	<view class="m-name">
-		<input class="name" data-name="" placeholder="姓"></input>
-		<input class="name2" data-name2="" placeholder="名"></input>
+<form bindsubmit="formSubmit">
+	<view class="m-infoInput">
+		<view class="m-name">
+			<input class="name" name="user"  placeholder="姓"></input>
+			<input class="name2" name="name" placeholder="名"></input>
+		</view>
+		<input class="code" name="code" placeholder="护照编号"></input>
+		<button formType="submit" class="inputBtn" >登录</button>
 	</view>
-	<input class="code" data-code="" placeholder="护照编号"></input>
-	<button class="inputBtn"  open-type="getUserInfo" bindgetuserinfo="onGotUserInfo">登录</button>
+</form>
+<view class="logo">
+	<image src="../img/logo.png"></image>
 </view>
