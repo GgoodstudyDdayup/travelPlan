@@ -2,7 +2,9 @@
 <view class="m-header">
 	<image src="../img/head.png"></image>
 </view>
-<view class="title">2020和浠高端境外游学土耳其之旅</view>
+<view class="title">
+	<image src="../img/ziti.png"></image>
+</view>
 <form bindsubmit="formSubmit">
 	<view class="m-infoInput">
 		<view class="m-name">

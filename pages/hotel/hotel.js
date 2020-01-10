@@ -24,7 +24,12 @@ Page({
       })
     })
   },
-
+  tel(e){
+    console.log(e)
+    wx.makePhoneCall({
+      phoneNumber: `${e.currentTarget.dataset.tel}`
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

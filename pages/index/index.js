@@ -21,8 +21,10 @@ Page({
       })
       that.setData({
         outList,
-        date
+        date,
+        queue:res.data.queue
       })
+      console.log(that.data.queue)
     })
   },
   getNowFormatDate() {
@@ -37,7 +39,7 @@ Page({
     if (strDate >= 0 && strDate <= 9) {
       strDate = "0" + strDate;
     }
-    let currentdate = year + seperator1 + month + seperator1 + strDate;
+    let currentdate = month + seperator1 + strDate;
     return currentdate;
   },
   Info(e) {
@@ -58,6 +60,12 @@ Page({
   loadImg() {
     wx.navigateTo({
       url: '../qianzheng/qianzheng',
+    })
+  },
+  tel(e){
+    console.log(e)
+    wx.makePhoneCall({
+      phoneNumber: `${e.currentTarget.dataset.tel}`
     })
   }
 })

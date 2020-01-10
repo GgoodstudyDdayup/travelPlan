@@ -1,5 +1,5 @@
 <!--pages/qianzheng/qianzheng.wxml-->
-<view class="qianzhenImg">
+<view class="qianzhenImg" data-src="{{img}}" bindtap="showImg">
   <image src="{{img}}"></image>
 </view>
 <view class="saveImg" bindtap="saveImg" data-img="{{img}}">保存图片</view>

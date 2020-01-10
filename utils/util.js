@@ -1,4 +1,4 @@
-const globalUrl = 'http://nt.liaozhifeng.cn/api/'
+const globalUrl = 'https://nt.liaozhifeng.cn/api/'
 const post = (url, parms) => {
   let http = new Promise((resolve, reject) => {
     wx.request({

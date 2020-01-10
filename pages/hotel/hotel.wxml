@@ -1,33 +1,36 @@
 <!--pages/hotel/hotel.wxml-->
 <view class="hotel-name">{{info.name}}</view>
-<view class="hotel-ps">Hermes Cave Hotel</view>
 <view class="m-contact">
 	<view class="m-address">
 		<image src="../img/tubiao.png"></image>
 		<text>{{info.address}}</text>
 	</view>
-	<view class="m-tel">
+	<view class="m-address">
+		<image src="../img/web.png"></image>
+		<text>{{info.site}}</text>
+	</view>
+	<view class="m-tel" bindtap="tel" data-tel="{{info.tel}}">
 		<image src="../img/tel.png"></image>
 		<text>{{info.tel}}</text>
 	</view>
 </view>
 <view class="m-info">
 	<view class="piaohao">
-		<text>周日</text>
-		<text class="m-timeme">12月08日</text>
+		<text>{{info.start_date}}</text>
+		<text class="m-timeme">{{info.start_datemd}}</text>
 		<view class="lastname">
-			<text class="last-time">16:00</text>
+			<text class="last-time">{{info.start_hour}}</text>
 			<text class="last-state">后入住</text>
 		</view>
 	</view>
 	<view class="m-num">
-		5晚
+		{{info.rest_time}}
 	</view>
 	<view class="flyTime">
-		<text>周日</text>
-		<text class="m-timeme">12月14日 </text>
+		<text>{{info.end_date}}</text>
+		<text class="m-timeme">{{info.end_datemd}}</text>
 		<view class="lastname">
-			<text class="last-time">12:00</text>
+			<text class="last-time">{{info.end_hour}}</text>
 			<text class="last-state">前退房</text>
 		</view>
 	</view>

@@ -33,7 +33,7 @@
 						<view wx:if="{{item.plan_id == 1}}" class="plan-item" data-id="{{item.id}}" data-name="plan" bindtap="Info">
 							<view class="m-paln-top">
 								<view class="m-paln-topTitle">
-									<text>{{item.hCompany}}</text>
+									<text>{{item.name}}</text>
 									<text>航班</text>
 								</view>
 								<image style="width:32rpx;height:32rpx" src="../img/jiantou.png"></image>
@@ -50,18 +50,18 @@
 								</view>
 							</view>
 						</view>
-						<view wx:elif="{{item.plan_id == 5}}" class="wait-item ">{{item.name}}</view>
+						<view wx:elif="{{item.plan_id == 5}}" class="wait-item ">转机 {{item.name}}</view>
 						<view wx:elif="{{item.plan_id == 3}}" class="hotel-item " data-id="{{item.id}}" data-name="hotel" bindtap="Info">
 							<view class="m-paln-top">
 								<view class="m-hotel-topTitle">
 									<text>{{item.name}}</text>
 									<text>{{item.address}}</text>
-									<text>入住：{{item.start_time}}</text>
+									<text>{{item.sort_time == item.end_time?'退房'+item.end_time:'入住'+item.start_time}}</text>
 								</view>
 								<image style="width:32rpx;height:32rpx" src="../img/jiantou.png"></image>
 							</view>
 						</view>
-						<view wx:elif="{{item.plan_id == 2}}" class="bus-item ">
+						<view wx:elif="{{item.plan_id == 2}}" class="bus-item">
 							<view class="m-paln-top">
 								<view class="m-huiyi-topTitle">
 									<text>{{item.name}}</text>
@@ -69,7 +69,7 @@
 									<text>上车:{{item.start_time}}</text>
 								</view>
 							</view>
-							<view class="contact-driver">
+							<view class="contact-driver" bindtap="tel" data-tel="{{item.tel}}">
 								<image src="../img/greenTel.png"></image>
 								<text>联系司机</text>
 							</view>
@@ -77,9 +77,13 @@
 						<view wx:elif="{{item.plan_id == 4}}" class="huiyi-item">
 							<view class="m-paln-top">
 								<view class="m-huiyi-topTitle">
-									<text>{{item.name}}</text>
-									<text>{{item.address}}</text>
-									<text>{{item.end_time?'会议结束'+item.end_time:'会议开始'+item.start_time}}</text>
+									<text >{{item.name}}</text>
+									<text >{{item.address}}</text>
+									<text class="table-name">
+										<text>座位号:{{item.SeatNumber}}</text>
+										<text style="margin-left:20rpx">桌号:{{item.tableNumber}}</text>
+									</text>
+									<text class="finishText">{{item.sort_time == item.end_time?'会议结束'+item.end_time:'会议开始'+item.start_time}}</text>
 								</view>
 							</view>
 						</view>
@@ -92,11 +96,11 @@
 
 
 <view class="m-fiex">
-	<view class="m-fiex-tel">
+	<view class="m-fiex-tel" bindtap="tel" data-tel="{{queue.lingtel}}">
 		<image src="../img/greenTel.png"></image>
 		<text>领队</text>
 	</view>
-	<view class="m-fiex-tel">
+	<view class="m-fiex-tel" bindtap="tel" data-tel="{{queue.daotel}}">
 		<image src="../img/greenTel.png"></image>
 		<text>导游</text>
 	</view>

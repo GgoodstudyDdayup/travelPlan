@@ -18,14 +18,12 @@ input {
 .title {
   width: 420rpx;
   height: 112rpx;
-  font-size: 40rpx;
-  font-family: monospace;
-  font-weight: bold;
-  line-height: 48rpx;
-  color: rgba(51, 51, 51, .9);
-  text-align: center;
   margin: 0 auto;
   margin-top: 32rpx;
+}
+.title image{
+  width: 100%;
+  height: 100%;
 }
 
 .m-infoInput {

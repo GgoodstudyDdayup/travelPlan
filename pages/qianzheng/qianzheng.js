@@ -1,18 +1,24 @@
 // pages/qianzheng/qianzheng.js
+const Http = require("../../utils/util")
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    img:'../img/WechatIMG1085@2x.png'
+    img:''
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    const that = this
+    Http.post(`plan/get_visa`,{openid:wx.getStorageSync('openid')}).then(res => {
+      that.setData({
+        img:res.data.data
+      })
+    })
   },
   saveImg() {
     let that = this
@@ -71,6 +77,13 @@ Page({
           }
         })
       }
+    })
+  },
+  showImg(e){
+    console.log(e)
+    wx.previewImage({
+      current: `${e.currentTarget.dataset.src}`, // 当前显示图片的http链接
+      urls: [`${e.currentTarget.dataset.src}`] // 需要预览的图片http链接列表
     })
   }
 })

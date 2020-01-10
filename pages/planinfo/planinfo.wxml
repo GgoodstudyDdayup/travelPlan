@@ -4,8 +4,8 @@
 	<text class="planName">{{planInfo.hCompany}}</text>
 </view>
 <view class="m-date">
-	<text class="m-date1">{{planInfo.datemd}}</text>
-	<text class="m-date2">{{planInfo.date}}</text>
+	<text class="m-date1">{{planInfo.start_datemd}}</text>
+	<text class="m-date2">{{planInfo.start_date}}</text>
 </view>
 <view class="m-info">
 	<image style="width:28rpx;height:34rpx;margin-left:4rpx" src="../img/tubiao.png"></image>
@@ -16,17 +16,17 @@
 	<view class="m-fly">
 		<text class="m-time">{{planInfo.start_hour}}</text>
 		<text class="m-didian">{{planInfo.start_station}}</text>
-		<text class="m-jichang">大兴机场T1大兴机场T1
+		<text class="m-jichang">{{planInfo.airport?planInfo.airport:'暂无机场信息'}}
     <text class="m-riqi">{{planInfo.start_day}}</text>
-		<text class="m-riqibianhao">GMT+8</text>
+		<text class="m-riqibianhao">{{planInfo.start_hour}}</text>
     </text>
 	</view>
   <view class="m-fly m-flyend">
 		<text class="m-time">{{planInfo.end_hour}}</text>
 		<text class="m-didian">{{planInfo.end_station}}</text>
-		<text class="m-jichang">大兴机场T1
+		<text class="m-jichang">{{planInfo.airport2?planInfo.airport2:'暂无机场信息'}}
     <text class="m-riqi">{{planInfo.end_day}}</text>
-		<text class="m-riqibianhao">GMT+8</text>
+		<text class="m-riqibianhao">{{planInfo.end_hour}}</text>
     </text>
 	</view>
 </view>
@@ -37,6 +37,6 @@
   </view>
   <view class="flyTime">
     <text>飞行时长</text>
-    <text>{{planInfo.fly_time}}</text>
+    <text>{{planInfo.duration}}</text>
   </view>
 </view>
